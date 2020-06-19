@@ -1,0 +1,25 @@
+{
+  "name": "visualising-front-end-performance-demo",
+  "version": "1.0.0",
+  "description": "Visualising Front end Performance demo",
+  "main": "index.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
+  },
+  "keywords": ["performance", "front-end", "react", "mobx"],
+  "author": "richiemccoll <richie.mccoll@hotmail.co.uk>",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^1.12.4"
+  },
+  "dependencies": {
+    "date-fns": "^2.14.0",
+    "mobx": "^5.15.4",
+    "mobx-state-tree": "^3.16.0",
+    "mobx-react": "^6.2.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "regenerator-runtime": "^0.13.5"
+  }
+}
