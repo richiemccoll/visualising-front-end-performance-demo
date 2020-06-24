@@ -4,11 +4,21 @@ function Card({ image, name, price, details, date, url }) {
   return (
     <div className="p-4 md:w-1/3">
       <div className="h-full border-2 border-gray-200 rounded-lg overflow-hidden">
-          <img
-            className="lg:h-48 md:h-36 w-full object-cover object-center"
-            src={image}
-            alt={name}
-          />
+        <img
+          className="w-full object-cover object-center"
+          width="400"
+          height="200"
+          style={{
+            width: "100%",
+            height: "auto",
+            minHeight: 200,
+            maxHeight: 200,
+            backgroundColor: "#DDD",
+          }}
+          loading="lazy"
+          src={image}
+          alt={name}
+        />
         <div className="p-6">
           <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
             {name}
