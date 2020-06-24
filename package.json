@@ -5,13 +5,21 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html"
+    "prebuild": "rimraf dist",
+    "build": "parcel build index.html",
+    "serve": "npx serve dist/"
   },
-  "keywords": ["performance", "front-end", "react", "mobx"],
+  "keywords": [
+    "performance",
+    "front-end",
+    "react",
+    "mobx"
+  ],
   "author": "richiemccoll <richie.mccoll@hotmail.co.uk>",
   "license": "ISC",
   "devDependencies": {
-    "parcel": "^1.12.4"
+    "parcel": "^1.12.4",
+    "rimraf": "^3.0.2"
   },
   "dependencies": {
     "date-fns": "^2.14.0",
