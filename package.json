@@ -4,6 +4,7 @@
   "description": "Visualising Front end Performance demo",
   "main": "index.js",
   "scripts": {
+    "prestart": "rimraf dist",
     "start": "parcel index.html",
     "prebuild": "rimraf dist",
     "build": "parcel build index.html",
