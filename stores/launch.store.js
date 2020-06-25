@@ -1,4 +1,4 @@
-import { types, getEnv, addDisposer, flow } from "mobx-state-tree";
+import { types, getEnv, addDisposer, flow, applySnapshot, applyPatch } from "mobx-state-tree";
 import { autorun } from "mobx";
 import format from "date-fns/format/index";
 
@@ -24,7 +24,7 @@ const Launch = types.model("Launch", {
 
 const launchModel = {
   allLaunches: types.array(Launch),
-  refreshId: types.maybeNull(types.number),
+  order: types.optional(types.string, 'newest')
 };
 
 const launchViews = (self) => ({
@@ -32,8 +32,19 @@ const launchViews = (self) => ({
     return getEnv(self).launchService;
   },
   get launches() {
-    return self.allLaunches.reverse().slice(0, 25);
+    const type = {
+      oldest: self.allLaunches,
+      newest: self.allLaunches.slice().reverse()
+    }
+    return type[self.order];
   },
+  get oppositeOrder() {
+    const type = {
+      oldest: 'new',
+      newest: 'old'
+    }
+    return type[self.order];
+  }
 });
 
 const launchActions = (self) => {
@@ -44,18 +55,18 @@ const launchActions = (self) => {
       });
       addDisposer(self, disposer);
     },
-    getLatestLaunchs() {
-      if (self.refreshId) {
-        clearInterval(self.refreshId);
-      }
-      self.refreshId = setInterval(() => self.getPastLaunches(), 6000);
-    },
     getPastLaunches: flow(function* getPastLaunches() {
       const launches = yield self.launchService.getPastLaunches();
       const normalised = normaliseLaunches(launches);
       self.allLaunches = normalised;
-      self.getLatestLaunchs();
     }),
+    setOrder() {
+      if (self.order === 'newest') {
+        self.order = 'oldest';
+      } else {
+        self.order = 'newest';
+      }
+    }
   };
 };
 
