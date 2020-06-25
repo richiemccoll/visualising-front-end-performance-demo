@@ -67,4 +67,4 @@ function Card({ image, name, price, details, date, url }) {
   );
 }
 
-export default Card;
+export default memo(Card);
