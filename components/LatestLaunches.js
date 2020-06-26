@@ -1,5 +1,6 @@
-import React, { memo, useRef, useEffect } from "react";
+import React, { useRef, useEffect } from "react";
 import { inject, observer } from "mobx-react";
+import { Masonry } from "masonic";
 
 import Card from "./Card";
 
@@ -33,22 +34,27 @@ function LatestLaunchList({ launches, setOrder, order = "older" }) {
             performance.mark("changingOrder-start");
             setOrder();
           }}
-          class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         >
           Click to view {order} launches
         </button>
       </div>
       <div className="flex flex-wrap -m-4">
-        {launches.map((launch) => (
-          <Card
-            key={launch.id}
-            name={launch.name}
-            details={launch.details}
-            image={launch.imgUrl}
-            url={launch.url}
-            date={launch.date}
-          />
-        ))}
+        <Masonry
+          items={launches}
+          render={({ data: launch }) => {
+            return (
+              <Card
+                name={launch.name}
+                details={launch.details}
+                image={launch.imgUrl}
+                url={launch.url}
+                date={launch.date}
+              />
+            );
+          }}
+          columnWidth={400}
+        />
       </div>
     </div>
   );
