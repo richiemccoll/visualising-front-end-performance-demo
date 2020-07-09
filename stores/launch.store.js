@@ -2,9 +2,16 @@ import { types, getEnv, addDisposer, flow, applySnapshot, applyPatch } from "mob
 import { autorun } from "mobx";
 import format from "date-fns/format/index";
 
+function resizeImage(url) {
+  const originalImageSize = '_o.jpg';
+  const smallerImageSize = '_n.jpg';
+  if (url) {
+    return url.replace(originalImageSize, smallerImageSize);
+  }
+}
 function normaliseLaunches(launches) {
   return launches.map((launch) => ({
-    imgUrl: launch.links.flickr.original[0] || launch.links.patch.large,
+    imgUrl: resizeImage(launch.links.flickr.original[0]) || launch.links.patch.small,
     name: launch.name,
     details: launch.details,
     id: launch.id,

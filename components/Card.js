@@ -1,6 +1,6 @@
-import React, { memo } from "react";
+import React from "react";
 
-function Card({ image, name, price, details, date, url }) {
+function Card({ image, name, details, date, url }) {
   return (
     <div className="p-4 md:w-1/3">
       <div className="h-full border-2 border-gray-200 rounded-lg overflow-hidden">
@@ -14,6 +14,7 @@ function Card({ image, name, price, details, date, url }) {
             minHeight: 200,
             maxHeight: 200,
             backgroundColor: "#DDD",
+            contain: 'content'
           }}
           loading="lazy"
           src={image}
@@ -28,8 +29,8 @@ function Card({ image, name, price, details, date, url }) {
             <a
               className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0"
               href={url}
-              rel="no-opener"
               target="_blank"
+              rel="noreferrer"
             >
               Learn More
               <svg

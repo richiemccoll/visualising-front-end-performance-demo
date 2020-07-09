@@ -24,7 +24,7 @@
   },
   "dependencies": {
     "date-fns": "^2.14.0",
-    "masonry": "0.0.2",
+    "masonic": "^3.2.0",
     "mobx": "^5.15.4",
     "mobx-react": "^6.2.2",
     "mobx-state-tree": "^3.16.0",
