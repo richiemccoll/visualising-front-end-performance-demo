@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "prestart": "rimraf dist",
-    "start": "parcel index.html",
+    "start": "webpack --watch --development",
     "prebuild": "rimraf dist",
-    "build": "parcel build index.html",
+    "build": "webpack --mode production",
     "serve": "npx serve dist/"
   },
   "keywords": [
@@ -19,8 +19,15 @@
   "author": "richiemccoll <richie.mccoll@hotmail.co.uk>",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.10.5",
+    "@babel/plugin-transform-regenerator": "^7.10.4",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "html-webpack-plugin": "^4.3.0",
     "parcel": "^1.12.4",
-    "rimraf": "^3.0.2"
+    "rimraf": "^3.0.2",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
   },
   "dependencies": {
     "date-fns": "^2.14.0",
