@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "prestart": "rimraf dist",
-    "start": "webpack --watch --development",
+    "start": "cross-env NODE_ENV=development webpack --watch --development",
     "prebuild": "rimraf dist",
-    "build": "webpack --mode production",
-    "serve": "npx serve dist/"
+    "build": "cross-env NODE_ENV=production webpack",
+    "serve": "npx serve dist/",
+    "analyze": "cross-env ANALYZE_BUNDLE=true NODE_ENV=production webpack --profile --mode production"
   },
   "keywords": [
     "performance",
@@ -23,10 +24,12 @@
     "@babel/plugin-transform-regenerator": "^7.10.4",
     "@babel/preset-react": "^7.10.4",
     "babel-loader": "^8.1.0",
+    "cross-env": "^7.0.2",
     "html-webpack-plugin": "^4.3.0",
     "parcel": "^1.12.4",
     "rimraf": "^3.0.2",
     "webpack": "^4.43.0",
+    "webpack-bundle-analyzer": "^3.8.0",
     "webpack-cli": "^3.3.12"
   },
   "dependencies": {

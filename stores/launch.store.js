@@ -1,6 +1,6 @@
 import { types, getEnv, addDisposer, flow, applySnapshot, applyPatch } from "mobx-state-tree";
 import { autorun } from "mobx";
-import format from "date-fns/format/index";
+import { format } from "date-fns";
 
 function resizeImage(url) {
   const originalImageSize = '_o.jpg';
