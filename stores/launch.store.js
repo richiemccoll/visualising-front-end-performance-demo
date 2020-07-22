@@ -22,7 +22,7 @@ function normaliseLaunches(launches) {
 
 const Launch = types.model("Launch", {
   id: types.identifier,
-  imgUrl: types.string,
+  imgUrl: types.maybeNull(types.string),
   name: types.string,
   details: types.maybeNull(types.string),
   url: types.string,
