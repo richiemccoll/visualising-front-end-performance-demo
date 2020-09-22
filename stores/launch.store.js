@@ -25,7 +25,7 @@ const Launch = types.model("Launch", {
   imgUrl: types.maybeNull(types.string),
   name: types.string,
   details: types.maybeNull(types.string),
-  url: types.string,
+  url: types.maybeNull(types.string),
   date: types.maybeNull(types.string),
 });
 
