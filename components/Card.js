@@ -1,9 +1,9 @@
-import React from "react";
+import React, { memo } from "react";
 
 function Card({ image, name, details, date, url }) {
   return (
-    <div className="p-4 md:w-1/3">
-      <div className="h-full border-2 border-gray-200 rounded-lg overflow-hidden">
+    <div className="p-4">
+      <div className="h-full border-2 border-gray-200 rounded-lg overflow-hidden max-w-md">
         <img
           className="w-full object-cover object-center"
           width="400"
@@ -68,4 +68,4 @@ function Card({ image, name, details, date, url }) {
   );
 }
 
-export default Card;
+export default memo(Card);

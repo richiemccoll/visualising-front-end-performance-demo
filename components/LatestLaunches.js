@@ -1,22 +1,23 @@
 import React, { useRef, useEffect } from "react";
+
 import { inject, observer } from "mobx-react";
 
 import Card from "./Card";
 
 function LatestLaunchList({ launches, setOrder, order = "older" }) {
   return (
-    <div className="container px-5 py-24 mx-auto">
-      <div className="flex flex-wrap mb-4">
+    <div className="container px-5 py-10 mx-auto max-w-4xl">
+      <div className="flex flex-wrap mb-4 justify-center">
         <button
           onClick={() => {
             setOrder();
           }}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+          className="bg-gray-200 hover:bg-gray-400 text-black font-bold py-2 px-4 mb-4 rounded"
         >
           Click to view {order} launches
         </button>
       </div>
-      <div className="flex flex-wrap -m-4">
+      <div className="flex flex-col items-center">
         {launches.map((launch) => (
           <Card
             key={launch.id}
