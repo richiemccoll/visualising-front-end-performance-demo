@@ -23,6 +23,7 @@
     "rimraf": "^3.0.2"
   },
   "dependencies": {
+    "@project-zero/components": "^1.1.0-alpha.0",
     "date-fns": "^2.14.0",
     "masonic": "^3.2.0",
     "mobx": "^5.15.4",

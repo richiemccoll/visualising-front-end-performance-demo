@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from "react";
 import { inject, observer } from "mobx-react";
 import { Masonry } from "masonic";
+import { Button } from "@project-zero/components";
 
 import Card from "./Card";
 
@@ -29,15 +30,15 @@ function LatestLaunchList({ launches, setOrder, order = "older" }) {
   return (
     <div className="container px-5 py-24 mx-auto">
       <div className="flex flex-wrap mb-4">
-        <button
+        <Button
+          variant="light"
           onClick={() => {
             performance.mark("changingOrder-start");
             setOrder();
           }}
-          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         >
           Click to view {order} launches
-        </button>
+        </Button>
       </div>
       <div className="flex flex-wrap -m-4">
         <Masonry
